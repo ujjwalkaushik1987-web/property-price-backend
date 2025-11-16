@@ -1,9 +1,7 @@
 fastapi
 uvicorn
-pillow
-torch==2.9.1+cpu
---extra-index-url https://download.pytorch.org/whl/cpu
-numpy
-requests
 pydantic
-python-multipart
+numpy
+scikit-learn
+xgboost
+joblib

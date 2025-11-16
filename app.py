@@ -1,43 +1,34 @@
-from fastapi import FastAPI, File, UploadFile, Form
-import torch
-from PIL import Image
+from fastapi import FastAPI
+from pydantic import BaseModel
+import joblib
 import numpy as np
-from torchvision import transforms
-from train import Model
-import uvicorn
 
 app = FastAPI()
 
-# Load your model
-model = Model()
-model.load_state_dict(torch.load("model.pth", map_location="cpu"))
-model.eval()
+# Load model + scaler
+model = joblib.load("numeric_model.pkl")
+scaler = joblib.load("scaler.pkl")
 
-# Image preprocessing
-transform = transforms.Compose([
-    transforms.Resize((224,224)),
-    transforms.ToTensor()
-])
+class PropertyInput(BaseModel):
+    latitude: float
+    longitude: float
+    area_sqft: float
+    bedrooms: int
+    bathrooms: int
+
+@app.get("/")
+def root():
+    return {"message": "Numeric Property Price Prediction API is running!"}
 
 @app.post("/predict")
-async def predict(
-    image: UploadFile = File(...),
-    latitude: float = Form(...),
-    longitude: float = Form(...),
-    area: float = Form(...),
-    bedrooms: int = Form(...),
-    bathrooms: int = Form(...)
-):
-    img = Image.open(image.file).convert("RGB")
-    img = transform(img).unsqueeze(0)
+def predict_price(data: PropertyInput):
+    # Convert input to array
+    x = np.array([[data.latitude, data.longitude, data.area_sqft, data.bedrooms, data.bathrooms]])
 
-    tab = torch.tensor([[latitude, longitude, area, bedrooms, bathrooms]], dtype=torch.float32)
+    # Scale numeric data
+    x_scaled = scaler.transform(x)
 
-    with torch.no_grad():
-        log_price = model(img, tab).item()
+    # Predict
+    pred = model.predict(x_scaled)[0]
 
-    price = np.expm1(log_price)
-    return {"predicted_price": float(price)}
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    return {"predicted_price": float(pred)}
