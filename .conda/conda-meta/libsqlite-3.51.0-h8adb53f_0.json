@@ -1,0 +1,83 @@
+{
+  "name": "libsqlite",
+  "version": "3.51.0",
+  "build": "h8adb53f_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/osx-arm64",
+  "subdir": "osx-arm64",
+  "fn": "libsqlite-3.51.0-h8adb53f_0.conda",
+  "md5": "5fb1945dbc6380e6fe7e939a62267772",
+  "url": "https://conda.anaconda.org/conda-forge/osx-arm64/libsqlite-3.51.0-h8adb53f_0.conda",
+  "sha256": "b43d198f147f46866e5336c4a6b91668beef698bfba69d1706158460eadb2c1b",
+  "depends": [
+    "__osx >=11.0",
+    "icu >=75.1,<76.0a0",
+    "libzlib >=1.3.1,<2.0a0"
+  ],
+  "constrains": [],
+  "license": "blessing",
+  "timestamp": 1762300078000,
+  "size": 909508,
+  "requested_spec": "None",
+  "package_tarball_full_path": "/Users/ujjwalbharti/miniforge3/pkgs/libsqlite-3.51.0-h8adb53f_0.conda",
+  "extracted_package_dir": "/Users/ujjwalbharti/miniforge3/pkgs/libsqlite-3.51.0-h8adb53f_0",
+  "files": [
+    "include/sqlite3.h",
+    "include/sqlite3ext.h",
+    "lib/libsqlite3.0.dylib",
+    "lib/libsqlite3.3.51.0.dylib",
+    "lib/libsqlite3.dylib",
+    "lib/pkgconfig/sqlite3.pc"
+  ],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": [
+      {
+        "_path": "include/sqlite3.h",
+        "path_type": "hardlink",
+        "sha256": "54255b762709a525dff79b45df748d1abf10a75063e671d675c004a844a23471",
+        "size_in_bytes": 671765,
+        "sha256_in_prefix": "54255b762709a525dff79b45df748d1abf10a75063e671d675c004a844a23471"
+      },
+      {
+        "_path": "include/sqlite3ext.h",
+        "path_type": "hardlink",
+        "sha256": "ea81fb7bd05882e0e0b92c4d60f677b205f7f1fbf085f218b12f0b5b3f0b9e48",
+        "size_in_bytes": 38632,
+        "sha256_in_prefix": "ea81fb7bd05882e0e0b92c4d60f677b205f7f1fbf085f218b12f0b5b3f0b9e48"
+      },
+      {
+        "_path": "lib/libsqlite3.0.dylib",
+        "path_type": "softlink",
+        "sha256": "12711d6a280934b93b9612342c47f4122dc29d5d3ab2617a3800f2da7199defb",
+        "size_in_bytes": 1747776
+      },
+      {
+        "_path": "lib/libsqlite3.3.51.0.dylib",
+        "path_type": "hardlink",
+        "sha256": "12711d6a280934b93b9612342c47f4122dc29d5d3ab2617a3800f2da7199defb",
+        "size_in_bytes": 1747776,
+        "sha256_in_prefix": "12711d6a280934b93b9612342c47f4122dc29d5d3ab2617a3800f2da7199defb"
+      },
+      {
+        "_path": "lib/libsqlite3.dylib",
+        "path_type": "softlink",
+        "sha256": "12711d6a280934b93b9612342c47f4122dc29d5d3ab2617a3800f2da7199defb",
+        "size_in_bytes": 1747776
+      },
+      {
+        "_path": "lib/pkgconfig/sqlite3.pc",
+        "prefix_placeholder": "/Users/runner/miniforge3/conda-bld/sqlite-split_1762299600770/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "4b913b90849486ab612a94e9fcf2ae35253c9b354205048a78ee6ea58e5f99fe",
+        "size_in_bytes": 1075,
+        "sha256_in_prefix": "c767854dcef935ab8660335e21a542877a9cca3b9c5cff09eced56f02e7d8b0f"
+      }
+    ]
+  },
+  "link": {
+    "source": "/Users/ujjwalbharti/miniforge3/pkgs/libsqlite-3.51.0-h8adb53f_0",
+    "type": 1
+  }
+}
