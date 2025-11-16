@@ -22,13 +22,7 @@ def root():
 
 @app.post("/predict")
 def predict_price(data: PropertyInput):
-    # Convert input to array
     x = np.array([[data.latitude, data.longitude, data.area_sqft, data.bedrooms, data.bathrooms]])
-
-    # Scale numeric data
     x_scaled = scaler.transform(x)
-
-    # Predict
     pred = model.predict(x_scaled)[0]
-
     return {"predicted_price": float(pred)}
